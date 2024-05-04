@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.DetailsFragment">
+    android:padding="@dimen/screen_margin">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tv_name"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/screen_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="University Name" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginEnd="@dimen/screen_margin"
+        android:textSize="@dimen/tiny_font_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        tools:text="University state" />
+
+    <TextView
+        android:id="@+id/tv_country"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginEnd="@dimen/screen_margin"
+        android:textSize="@dimen/tiny_font_size"
+        app:layout_constraintEnd_toStartOf="@+id/tv_country_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_state"
+        app:layout_constraintWidth_percent="0.5"
+        tools:text="country" />
+
+    <TextView
+        android:id="@+id/tv_country_code"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:textSize="@dimen/tiny_font_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_country"
+        app:layout_constraintTop_toBottomOf="@+id/tv_state"
+        tools:text="country code" />
+
+    <TextView
+        android:id="@+id/tv_webpage"
+        android:layout_width="@dimen/zero_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:layout_marginEnd="@dimen/screen_margin"
+        android:textSize="@dimen/tiny_font_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_country"
+        app:layout_goneMarginTop="@dimen/screen_margin"
+        tools:text="WebPage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

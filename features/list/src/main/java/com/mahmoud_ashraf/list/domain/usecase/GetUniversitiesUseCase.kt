@@ -1,6 +1,6 @@
 package com.mahmoud_ashraf.list.domain.usecase
 
-import com.mahmoud_ashraf.list.data.remote.model.GetUniversitiesResponseItem
+import com.mahmoud_ashraf.core.data.GetUniversitiesResponseItem
 import com.mahmoud_ashraf.list.data.repository.contracts.IUniversitiesRepository
 import javax.inject.Inject
 

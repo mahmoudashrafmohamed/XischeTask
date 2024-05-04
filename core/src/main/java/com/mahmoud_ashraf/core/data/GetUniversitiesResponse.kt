@@ -1,11 +1,13 @@
-package com.mahmoud_ashraf.list.data.remote.model
+package com.mahmoud_ashraf.core.data
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 
 /**
  * Created by Mahmoud Ashraf on 04,May,2024
  */
-
+@Parcelize
 data class GetUniversitiesResponseItem(
     @SerializedName("alpha_two_code")
     val alphaTwoCode: String?,
@@ -19,4 +21,4 @@ data class GetUniversitiesResponseItem(
     val webPages: List<String>?,
     @SerializedName("state-province")
     val stateProvince: String?
-)
+) : Parcelable

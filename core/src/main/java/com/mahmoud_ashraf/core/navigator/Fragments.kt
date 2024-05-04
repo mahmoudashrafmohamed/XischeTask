@@ -7,4 +7,7 @@ object Fragments {
   object UniversitiesListFragment : AddressableFragment {
     override val className: String = "com.mahmoud_ashraf.list.presentation.view.UniversitiesListFragment"
   }
+  object DetailsFragment : AddressableFragment {
+    override val className: String = "com.mahmoud_ashraf.details.presentation.view.DetailsFragment"
+  }
 }

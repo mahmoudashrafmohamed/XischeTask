@@ -3,15 +3,15 @@ package com.mahmoud_ashraf.list.presentation.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mahmoud_ashraf.list.data.remote.model.GetUniversitiesResponseItem
+import com.mahmoud_ashraf.core.data.GetUniversitiesResponseItem
 import com.mahmoud_ashraf.list.databinding.ItemUniversityBinding
 
 /**
  * Created by Mahmoud Ashraf on 04,May,2024
  */
-class UniversitiesListAdapter : RecyclerView.Adapter<UniversityViewHolder>() {
+class UniversitiesListAdapter(private val onItemClicked : (GetUniversitiesResponseItem)-> Unit) : RecyclerView.Adapter<UniversitiesListAdapter.UniversityViewHolder>() {
 
-  private val data: MutableList<GetUniversitiesResponseItem> = mutableListOf()
+  val data: MutableList<GetUniversitiesResponseItem> = mutableListOf()
 
 
   override fun onBindViewHolder(holder: UniversityViewHolder, position: Int) {
@@ -30,15 +30,17 @@ class UniversitiesListAdapter : RecyclerView.Adapter<UniversityViewHolder>() {
     this.data.addAll(list)
     notifyDataSetChanged()
   }
-}
 
-class UniversityViewHolder(
-  private val binding: ItemUniversityBinding,
-) : RecyclerView.ViewHolder(binding.root) {
-  fun bind(university: GetUniversitiesResponseItem) {
-    with(binding) {
-      tvName.text = university.name
-      tvState.text = university.stateProvince
+
+  inner class UniversityViewHolder(
+    private val binding: ItemUniversityBinding,
+  ) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(university: GetUniversitiesResponseItem) {
+      with(binding) {
+        binding.root.setOnClickListener { onItemClicked(university) }
+        tvName.text = university.name
+        tvState.text = university.stateProvince
+      }
     }
   }
 }

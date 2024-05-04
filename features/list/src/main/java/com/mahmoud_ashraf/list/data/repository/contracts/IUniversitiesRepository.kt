@@ -1,6 +1,6 @@
 package com.mahmoud_ashraf.list.data.repository.contracts
 
-import com.mahmoud_ashraf.list.data.remote.model.GetUniversitiesResponseItem
+import com.mahmoud_ashraf.core.data.GetUniversitiesResponseItem
 
 /**
  * Created by Mahmoud Ashraf on 04,May,2024

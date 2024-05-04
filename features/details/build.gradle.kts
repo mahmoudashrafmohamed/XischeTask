@@ -1,5 +1,5 @@
 plugins {
-  alias(libs.plugins.android.application)
+  alias(libs.plugins.androidLibrary)
   alias(libs.plugins.jetbrains.kotlin.android)
 }
 
@@ -8,11 +8,8 @@ android {
   compileSdk = 34
 
   defaultConfig {
-    applicationId = "com.mahmoud_ashraf.details"
     minSdk = 24
     targetSdk = 34
-    versionCode = 1
-    versionName = "1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -30,10 +27,13 @@ android {
   kotlinOptions {
     jvmTarget = "1.8"
   }
+  buildFeatures {
+    viewBinding = true
+  }
 }
 
 dependencies {
-
+  implementation(project(":core"))
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
   implementation(libs.material)

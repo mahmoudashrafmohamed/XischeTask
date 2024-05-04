@@ -1,6 +1,7 @@
 plugins {
   alias(libs.plugins.androidLibrary)
   alias(libs.plugins.jetbrains.kotlin.android)
+  alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -32,6 +33,7 @@ android {
 dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
+  implementation(libs.retrofit.gson.converter)
   implementation(libs.material)
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)

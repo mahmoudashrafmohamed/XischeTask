@@ -5,9 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.mahmoud_ashraf.list.data.remote.model.GetUniversitiesResponseItem
+import com.mahmoud_ashraf.core.androidExtensions.replaceFragment
+import com.mahmoud_ashraf.core.navigator.Fragments
+import com.mahmoud_ashraf.core.data.GetUniversitiesResponseItem
 import com.mahmoud_ashraf.list.databinding.FragmentUniversitiesListBinding
+import com.mahmoud_ashraf.core.navigator.NavigationKeys.UNIVERSITIES_ITEM
 import com.mahmoud_ashraf.list.presentation.viewmodel.UniversitiesListViewModel
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -24,7 +28,16 @@ class UniversitiesListFragment :DaggerFragment() {
   private var _binding: FragmentUniversitiesListBinding? = null
   private val binding get() = _binding!!
 
-  private val universitiesListAdapter by lazy {  UniversitiesListAdapter() }
+  private val universitiesListAdapter by lazy {  UniversitiesListAdapter(::onUniversityItemClicked) }
+
+  private fun onUniversityItemClicked(getUniversitiesResponseItem: GetUniversitiesResponseItem) {
+    val bundle = Bundle()
+    bundle.putParcelable(
+      UNIVERSITIES_ITEM,
+      getUniversitiesResponseItem
+    )
+    (this as Fragment).replaceFragment(Fragments.DetailsFragment, bundle = bundle)
+  }
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,

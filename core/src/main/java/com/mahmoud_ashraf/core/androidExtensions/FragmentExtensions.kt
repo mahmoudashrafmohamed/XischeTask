@@ -23,3 +23,20 @@ fun AppCompatActivity.replaceFragment(
 private fun <T : Fragment> fragmentOf(addressableFragment: AddressableFragment): T {
   return Class.forName(addressableFragment.className).newInstance() as T
 }
+
+fun Fragment.replaceFragment(
+  addressableFragment: AddressableFragment,
+  containerId: Int = fragmentContainerId,
+  bundle: Bundle? = null,
+  addToBackStack: Boolean = true
+) {
+  val fragment: Fragment = fragmentOf(addressableFragment)
+  fragment.arguments = bundle
+  val ft = this.activity?.supportFragmentManager?.beginTransaction()
+    ?.replace(containerId, fragment)
+  if (addToBackStack)
+    ft?.addToBackStack(addressableFragment.className)?.commit()
+  else
+    ft?.commit()
+
+}
