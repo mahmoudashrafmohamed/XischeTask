@@ -10,8 +10,8 @@
         android:id="@+id/tv_name"
         android:layout_width="@dimen/zero_dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_state"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/lbl_university_name" />
@@ -21,11 +21,11 @@
         android:layout_width="@dimen/zero_dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_small"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textSize="@dimen/tiny_font_size"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
         tools:text="@string/lbl_university_name" />
 
 
