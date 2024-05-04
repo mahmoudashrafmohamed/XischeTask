@@ -1,6 +1,7 @@
 plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.jetbrains.kotlin.android)
+  alias(libs.plugins.kapt)
 }
 
 android {
@@ -33,7 +34,13 @@ android {
 }
 
 dependencies {
+  implementation(project(":core"))
+  implementation(project(":features:list"))
 
+  implementation (libs.dagger)
+  implementation (libs.dagger.android.support)
+  kapt (libs.dagger.compiler)
+  kapt (libs.dagger.android.processor)
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
   implementation(libs.material)
