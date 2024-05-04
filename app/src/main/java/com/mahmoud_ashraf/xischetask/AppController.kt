@@ -12,8 +12,7 @@ class AppController : DaggerApplication() {
   override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
     return DaggerAppComponent.builder()
       .application(this)
-      .build()
-      .apply {
+      .build().apply{
         inject(this@AppController)
       }
 

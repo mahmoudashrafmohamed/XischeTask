@@ -42,10 +42,14 @@ dependencies {
   implementation(libs.retrofit)
   implementation(libs.retrofit.gson.converter)
   implementation(libs.viewmodel.ktx)
+  // dagger
   implementation (libs.dagger)
   implementation (libs.dagger.android.support)
   kapt (libs.dagger.compiler)
   kapt (libs.dagger.android.processor)
+  implementation (libs.androidx.room.runtime)
+  kapt (libs.androidx.room.compiler)
+
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)

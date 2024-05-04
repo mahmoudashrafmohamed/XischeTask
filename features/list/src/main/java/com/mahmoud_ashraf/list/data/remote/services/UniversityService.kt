@@ -3,7 +3,7 @@ package com.mahmoud_ashraf.list.data.remote.services
 import com.mahmoud_ashraf.list.data.remote.constants.RemoteConstants.COUNTRY_KEY
 import com.mahmoud_ashraf.list.data.remote.constants.RemoteConstants.SEARCH_ENDPOINT_PATH
 import com.mahmoud_ashraf.list.data.remote.constants.RemoteConstants.UAE
-import com.mahmoud_ashraf.core.data.GetUniversitiesResponseItem
+import com.mahmoud_ashraf.list.data.remote.model.GetUniversitiesResponseItem
 import retrofit2.http.GET
 import retrofit2.http.Query
 

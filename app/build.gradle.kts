@@ -39,10 +39,16 @@ dependencies {
   implementation(project(":features:list"))
   implementation(project(":features:details"))
 
+  // dagger
   implementation (libs.dagger)
   implementation (libs.dagger.android.support)
   kapt (libs.dagger.compiler)
   kapt (libs.dagger.android.processor)
+  implementation (libs.androidx.room.runtime)
+  kapt (libs.androidx.room.compiler)
+
+
+
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.appcompat)
   implementation(libs.material)

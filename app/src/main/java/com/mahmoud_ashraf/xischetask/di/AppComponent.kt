@@ -9,6 +9,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Singleton
 
 /**
@@ -19,10 +20,12 @@ import javax.inject.Singleton
   modules = [
     AndroidInjectionModule::class,
     NetworkModule::class,
+    DBModule::class,
     RepositoriesModule::class,
     FragmentBuildersModule::class,
     MainActivityModule::class,
-  ViewModelModule::class
+  ViewModelModule::class,
+    CoroutinesDispatchersModule::class
   ]
 )
 interface AppComponent : AndroidInjector<AppController> {
