@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_margin">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="tiny_font_size">11sp</dimen>
+</resources>
