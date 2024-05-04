@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "XischeTask"
 include(":app")
+include(":features")
+include(":features:list")
+include(":features:details")
