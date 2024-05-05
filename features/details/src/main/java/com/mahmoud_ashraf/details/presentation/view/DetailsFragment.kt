@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import com.mahmoud_ashraf.core.enitiy.University
+import com.mahmoud_ashraf.core.navigator.NavigationKeys.DETAILS_SCREEN_KEY
+import com.mahmoud_ashraf.core.navigator.NavigationKeys.SHOULD_REFRESH_KEY
 import com.mahmoud_ashraf.core.navigator.NavigationKeys.UNIVERSITIES_ITEM
 import com.mahmoud_ashraf.details.databinding.FragmentDetailsBinding
 
@@ -28,6 +31,11 @@ class DetailsFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     university?.let { initView(it) }
+    binding.btnRefresh.setOnClickListener {
+      val resultBundle = Bundle().apply { putBoolean(SHOULD_REFRESH_KEY, true) }
+      setFragmentResult(DETAILS_SCREEN_KEY, resultBundle)
+      activity?.onBackPressed()
+    }
   }
 
   private fun initView(university:University) {

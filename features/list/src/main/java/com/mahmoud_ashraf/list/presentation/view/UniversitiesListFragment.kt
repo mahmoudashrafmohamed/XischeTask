@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.mahmoud_ashraf.core.androidExtensions.replaceFragment
 import com.mahmoud_ashraf.core.enitiy.University
 import com.mahmoud_ashraf.core.navigator.Fragments
-import com.mahmoud_ashraf.list.data.remote.model.GetUniversitiesResponseItem
-import com.mahmoud_ashraf.list.databinding.FragmentUniversitiesListBinding
+import com.mahmoud_ashraf.core.navigator.NavigationKeys.DETAILS_SCREEN_KEY
+import com.mahmoud_ashraf.core.navigator.NavigationKeys.SHOULD_REFRESH_KEY
 import com.mahmoud_ashraf.core.navigator.NavigationKeys.UNIVERSITIES_ITEM
+import com.mahmoud_ashraf.list.databinding.FragmentUniversitiesListBinding
 import com.mahmoud_ashraf.list.presentation.model.UniversitiesListScreenState
 import com.mahmoud_ashraf.list.presentation.viewmodel.UniversitiesListViewModel
 import dagger.android.support.DaggerFragment
@@ -57,6 +59,17 @@ class UniversitiesListFragment : DaggerFragment() {
       handleScreenState(it)
     }
     viewModel.getUniversities()
+    setupFragmentResultListener()
+  }
+
+  private fun setupFragmentResultListener() {
+    setFragmentResultListener(DETAILS_SCREEN_KEY) { reqKey, bundle ->
+      if (reqKey == DETAILS_SCREEN_KEY) {
+        val result = bundle.getBoolean(SHOULD_REFRESH_KEY)
+        viewModel.isRefreshRequired = result
+        viewModel.getUniversities()
+      }
+    }
   }
 
   private fun handleScreenState(it: UniversitiesListScreenState?) {

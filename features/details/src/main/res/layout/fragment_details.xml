@@ -62,4 +62,13 @@
         app:layout_goneMarginTop="@dimen/screen_margin"
         tools:text="WebPage" />
 
+    <Button
+        android:id="@+id/btn_refresh"
+        android:text="@string/lbl_refresh"
+        android:layout_marginTop="@dimen/screen_margin"
+        app:layout_constraintTop_toBottomOf="@id/tv_webpage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

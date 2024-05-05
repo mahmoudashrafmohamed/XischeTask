@@ -42,6 +42,7 @@ dependencies {
   implementation(libs.retrofit)
   implementation(libs.retrofit.gson.converter)
   implementation(libs.viewmodel.ktx)
+  implementation(libs.androidx.fragment.ktx)
   // dagger
   implementation (libs.dagger)
   implementation (libs.dagger.android.support)
